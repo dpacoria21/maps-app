@@ -1,11 +1,14 @@
+import { useEffect, useReducer } from 'react';
 import { PlacesContext } from './PlacesContext';
+import { placesReducer } from './placesReducer';
+import { getUserLocation } from '../../helpers';
 
-export interface PlacesStore {
+export interface PlacesState {
     isLoading: boolean,
     userLocation?: [number, number]
 }
 
-const INITIAL_STATE: PlacesStore = {
+const INITIAL_STATE: PlacesState = {
     isLoading: true,
     userLocation: undefined
 };
@@ -15,10 +18,24 @@ interface Props {
 }
 
 export const PlacesProvider = ({children}: Props) => {
+
+    const [state, dispatch] = useReducer(placesReducer, INITIAL_STATE);
+
+    useEffect(() => {
+
+        getUserLocation()
+            .then((lngLat: [number, number]) => {
+                dispatch({
+                    type: 'setUserLocation',
+                    payload: lngLat,
+                });
+            });
+
+    }, []);
+
     return (
         <PlacesContext.Provider value={{
-            isLoading: true,
-            userLocation: undefined,
+            ...state
         }}>
             {children}
         </PlacesContext.Provider>
