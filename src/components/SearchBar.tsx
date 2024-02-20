@@ -4,7 +4,7 @@ import { SearchResults } from './SearchResults';
 
 export const SearchBar = () => {
 
-    const debounceRef = useRef<NodeJS.Timeout | null>();
+    const debounceRef = useRef<number | undefined>();
     
     const {searchPlacesByTerm} = useContext(PlacesContext);
 
