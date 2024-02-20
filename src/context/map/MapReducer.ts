@@ -1,4 +1,6 @@
-import { Map, Marker } from 'mapbox-gl';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+import { Map, Marker } from '!mapbox-gl';
 import { MapState } from './MapProvider';
 
 type MapAction = 
