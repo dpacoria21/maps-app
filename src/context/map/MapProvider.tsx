@@ -1,6 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
-import { AnySourceData, LngLatBounds, Map, Marker, Popup } from '!mapbox-gl';
+import { AnySourceData, LngLatBounds, Map, Marker, Popup } from 'mapbox-gl';
 import { MapContext } from './MapContext';
 import { useContext, useEffect, useReducer } from 'react';
 import { mapReducer } from './MapReducer';

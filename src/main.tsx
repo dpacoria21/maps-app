@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { MapsApp } from './MapsApp.tsx';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
-import mapboxgl from '!mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
 
 if(!navigator.geolocation) {
